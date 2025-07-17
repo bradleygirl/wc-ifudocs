@@ -1,0 +1,152 @@
+
+/*
+* Variables for breakpoints
+*/
+$mobile-landscape: 568px;
+$tablet: 768px;
+$desktop: 992px;
+
+/*
+* Map for breakpoints
+*/
+$breakpoints: (
+  "small": $mobile-landscape,
+  "medium": $tablet,
+  "large": $desktop,
+  );
+
+@mixin responsive($breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+    }
+}
+
+
+// IFU Document Download Section Styles
+
+.ifu-doc-header {
+    margin-bottom: 2rem;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+
+        &::before {
+            content: "\f15c";
+            font-family: "Font Awesome 5 Free";
+            font-size: 1.3em;
+            margin-right: 0.5em;
+            color: #6c7a89;
+            opacity: 0.75;
+        }
+    }
+
+    h3 {
+        font-size: 1.1rem;
+        color: #6c7a89;
+        font-weight: 400;
+        margin-top: 0.5em;
+    }
+}
+
+.ifu-doc-wrapper {
+    padding: 1rem;
+    /*font-family: 'Segoe UI', Arial, sans-serif;*/
+
+
+    #wcifu-doc\ downloads {
+        display: grid;
+        column-gap: 2rem;
+        row-gap: 1.75rem;
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        margin-top: 2rem;
+
+        @include responsive('small') { // Apply styles for small screens (e.g., mobile)
+            grid-template-columns: 1fr; // Change to 1 column
+          }
+
+        .english-dl {
+            grid-column: 1; /* Forces elements with class-x to the second (right) column */
+            @include responsive('small') { // Apply styles for small screens (e.g., mobile)
+                grid-column:unset; // Change to 1 column
+              }
+          }
+          
+          .lang-dl {
+            grid-area: 1 / 2 / 2 / 3;
+            @include responsive('small') { // Apply styles for small screens (e.g., mobile)
+                grid-area:unset; // Change to 1 column
+              }
+          }
+
+        .english-dl,
+        .lang-dl {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 1rem 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .wcifu-button-title {
+                font-size: 1.2rem;
+                font-weight: 500;
+                margin-bottom: 1.2rem;
+                display: block;
+                text-align: center;
+
+                select.inputLang {
+                    margin-left: 0.5em;
+                    padding: 0.2em 0.8em;
+                    border-radius: 4px;
+                    border: 1px solid #d1d5da;
+                    font-size: 0.85em;
+                }
+            }
+
+            .wcifu-download-link.button {
+                width: 80%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: nowrap;
+                gap: 1em;
+                width: minmax(60%, 95%);
+                min-height: 70px;
+                background: #e9eef3;
+                border: 2px solid #bfc9d1;
+                border-radius: 6px;
+                color: #6c7a89;
+                font-size: 1.1rem;
+                font-weight: 600;
+                text-decoration: none;
+                margin-top: 0.5em;
+                transition: background 0.2s, border 0.2s, color 0.2s;
+                cursor: pointer;
+
+                &::before {
+                    content: "\f019";
+                    font-family: "FontAwesome";
+                    font-size: 1.5em;
+                    margin-bottom: 0.3em;
+                    color: #6c7a89;
+                }
+
+                &:hover,
+                &:focus {
+                    background: #dbe6ef;
+                    border-color: #7a8fa6;
+                    color: #2c3e50;
+                }
+            }
+        }
+    }
+}
+
+// Optional: FontAwesome fallback if not loaded elsewhere
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
