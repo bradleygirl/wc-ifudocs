@@ -7,8 +7,8 @@
 namespace MGBdev\WC_Ifu_Docs;
 include_once (IFUD_GLOBAl_DIR . 'inc/render-ifudoc.php');
 get_header(); 
+wp_head();
 ?>
-
 <div class="ifu-archive-wrapper">
     <header class="ifu-archive-header">
         <h1><?php echo esc_html__('IFU Documents', 'wcifu-docs'); ?></h1>
@@ -167,4 +167,6 @@ get_header();
     <?php endif; ?>
 </div>
 
-<?php get_footer(); ?> 
+<?php get_footer(); 
+wp_footer();
+?> 

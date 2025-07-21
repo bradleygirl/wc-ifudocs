@@ -1,0 +1,49 @@
+// Variables for easy theming and reuse
+$archive-padding: 2em;
+$category-title-size: 2rem;
+$category-title-color: #6c7a89;
+$icon-font: "Font Awesome 5 Free";
+$icon-color: #6c7a89;
+$icon-opacity: 0.75;
+$child-group-indent: 2em;
+
+// Archive wrapper
+.ifu-archive-wrapper {
+  section.ifu-category-group {
+    padding-bottom: $archive-padding;
+
+    h2 {
+      font-size: $category-title-size;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      color: $category-title-color;
+    }
+
+    .ifu-category-child-group {
+      margin-left: $child-group-indent;
+
+      h3 {
+        font-weight: 400;
+      }
+
+      .ifu-documents-cards {
+        .ifu-document-card {
+          .ifu-document-title {
+            margin-left: 1em;
+
+            &::before {
+              content: "\f15c";
+              font-family: $icon-font;
+              margin-right: 0.5em;
+              color: $icon-color;
+              opacity: $icon-opacity;
+              font-weight: 900; // Font Awesome 5 solid
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.ifu-archive-wrapper section.ifu-category-group {
+  padding-bottom: 2em;
+}
+.ifu-archive-wrapper section.ifu-category-group h2 {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  color: #6c7a89;
+}
+.ifu-archive-wrapper section.ifu-category-group .ifu-category-child-group {
+  margin-left: 2em;
+}
+.ifu-archive-wrapper section.ifu-category-group .ifu-category-child-group h3 {
+  font-weight: 400;
+}
+.ifu-archive-wrapper section.ifu-category-group .ifu-category-child-group .ifu-documents-cards .ifu-document-card .ifu-document-title {
+  margin-left: 1em;
+}
+.ifu-archive-wrapper section.ifu-category-group .ifu-category-child-group .ifu-documents-cards .ifu-document-card .ifu-document-title::before {
+  content: "\f15c";
+  font-family: "Font Awesome 5 Free";
+  margin-right: 0.5em;
+  color: #6c7a89;
+  opacity: 0.75;
+  font-weight: 900;
+  display: inline-block;
+}
+
+/*# sourceMappingURL=archive-ifudoc.css.map */

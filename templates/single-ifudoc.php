@@ -10,6 +10,7 @@ include_once (IFUD_GLOBAl_DIR . 'inc/util-functions.php');
 include_once (IFUD_GLOBAl_DIR . 'inc/render-ifudoc.php');
 
 get_header(); 
+wp_head();
 
 global $post;
 setup_postdata($post);
@@ -83,4 +84,6 @@ setup_postdata($post);
 	</div>
 </div>
 
-<?php get_footer(); ?> 
+<?php get_footer(); 
+wp_footer();
+?> 
