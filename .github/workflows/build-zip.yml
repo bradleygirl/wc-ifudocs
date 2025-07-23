@@ -1,4 +1,4 @@
-name: Create Zip File
+name: Create Zip File # created 'wc-ifudocs.zip' in repository
 
 on:
   push:

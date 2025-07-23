@@ -54,11 +54,12 @@ function register_document_taxonomy() {
             'rewrite' => array('slug' => 'document-tag'),
         )
     );
+
+     register_term_meta('wcifudoc_category', '_wcifu_show_in_archive', ['show_in_rest' => true]);
 }
 add_action('init', __NAMESPACE__ . '\\register_document_taxonomy'); 
 
 
-register_term_meta('wcifudoc_category', '_wcifu_show_in_archive', ['show_in_rest' => true]);
 
 
 add_action('wcifudoc_category_add_form_fields', __NAMESPACE__ . '\\wcifudoc_category_show_add_form_fields');
@@ -68,7 +69,7 @@ function wcifudoc_category_show_add_form_fields(){
   
     <div class="form-field">
       <label for="wcifu_show_in_archive">Show in Archive Page</label>
-      <input name="_wcifu_show_in_archive" id="wcifu_show_in_archive" type="checkbox" value="1" checked >
+      <input name="_wcifu_show_in_archive" id="wcifu_show_in_archive" type="checkbox" value="1" checked="" >
       <p id="wcifu_show_in_archive-description">Check this box to show this category in the archive page.</p>
     </div>
   
@@ -80,6 +81,11 @@ function wcifudoc_save_category_meta($term_id){
       return;
     }
     update_term_meta( $term_id, '_wcifu_show_in_archive', intval( $_POST['_wcifu_show_in_archive'] ));
+    /*wp_update_term($term_id, 'wcifudoc_category', array(
+        'meta' => array(
+            '_wcifu_show_in_archive' => intval( $_POST['_wcifu_show_in_archive'] ),
+        )
+    ));*/
   }
 
   add_action('wcifudoc_category_edit_form_fields',  __NAMESPACE__ . '\\wcifudoc_category_show_edit_form_fields');

@@ -19,7 +19,7 @@ function add_documents_product_tab($tabs) {
     $documents = get_post_meta($product->get_id(), '_product_documents', true);
     if (!empty($documents)) {
         $tabs['documents'] = array(
-            'title' => __('Documents', 'wcifu-docs'),
+            'title' => __('IFU Documents', 'wcifu-docs'),
             'priority' => 25,
             'callback' => __NAMESPACE__ . '\\render_documents_tab_content'
         );
@@ -41,7 +41,7 @@ function render_documents_tab_content() {
     }
     
     echo '<div class="product-documents">';
-    echo '<h3>' . __('Product Documents', 'wcifu-docs') . '</h3>';
+    echo '<h3>' . __('Product IFU Documents', 'wcifu-docs') . '</h3>';
     echo '<div id="wcifu-doc downloads">';
     
     foreach ($documents as $doc_id) {
